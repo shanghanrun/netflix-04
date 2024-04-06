@@ -24,8 +24,8 @@ const AppLayout = () => {
 				<Navbar.Brand href="/">
 					<img src="netflix.webp" width={150} height={60} alt="로고" />
 				</Navbar.Brand>
-				<Navbar.Toggle aria-controls="navbarScroll" style={{color:'red'}}/>
-				<Navbar.Collapse  id="navbarScroll" style={{color:'red'}}>
+				<Navbar.Toggle aria-controls="navbarScroll"/>
+				<Navbar.Collapse  id="navbarScroll" >
 					<Nav
 					className="me-auto my-2 my-lg-0"
 					style={{ maxHeight: '100px' }}
