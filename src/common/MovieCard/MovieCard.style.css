@@ -36,6 +36,17 @@
 	margin-bottom: 10px;
 }
 
+.all, .adult{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	text-align: center;
+	/* 텍스트를 가운데 정렬합니다. */
+	line-height: 19px;
+	/* 텍스트의 높이를 요소의 높이와 동일하게 설정하여 세로 가운데 정렬합니다. */
+	padding: 3px;
+}
+
 @meaia (max-width:480px) {
 	.movie-card {
 		/* height: 330px; */

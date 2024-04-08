@@ -29,14 +29,15 @@ const MovieCard = ({movie}) => {
 	}
 
   return (
-	<div className="movie-card" style={{backgroundImage: "url("+`${imagePath+movie.poster_path}`+")"}}
+	<div className="movie-card" style={{backgroundImage: `url(${imagePath}${movie.poster_path}`}}
 		onClick={()=>gotoDetail(movie.id)}
 	>		
 	
 		<div className="overlay">
 			<h3>{movie.title}</h3>
 			<div className="underline"></div>
-			{getGenreNameList(movie.genre_ids).map((name, i)=><Badge bg="danger" key={i}>{name}</Badge>)}
+			{getGenreNameList(movie.genre_ids).map((name, i)=>
+					<Badge bg="danger" key={i} style={{marginRight:'2px'}}>{name}</Badge>)}
 			<div>
 				<div>
 					<Badge bg="warning" style={{color:'black'}}>IMDb</Badge>
@@ -46,7 +47,10 @@ const MovieCard = ({movie}) => {
 					<FontAwesomeIcon icon={faUsers} />
 					{movie.popularity}
 				</div>
-				<div>{movie.adult? 'Over 18':'Under 18'}</div>
+				<div>
+					{movie.adult? <Badge className='adult' bg="danger">19</Badge>
+						: <Badge className="all" bg="success">All</Badge>}
+				</div>
 			</div>
 		</div>
 	</div>

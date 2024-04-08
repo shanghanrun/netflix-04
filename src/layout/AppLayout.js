@@ -10,8 +10,9 @@ const AppLayout = () => {
 	const searchByKeyword=(e)=>{
 		e.preventDefault()
 		// keyword로 url 바꿔주기
-		const formData = new FormData()
+		const formData = new FormData(formRef.current)
 		const keyword = formData.get('keyword')
+		console.log('gotten keyword : ', keyword)
 		navigate(`/movies?q=${keyword}`)
 		// 폼 초기화
 		formRef.current.reset();

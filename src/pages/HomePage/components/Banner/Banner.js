@@ -22,8 +22,7 @@ const Banner = () => {
   let imagePath2 =`https://www.themoviedb.org/t/p/w1066_and_h600_bestv2${poster_path}`
   return (
     <div style={{
-      backgroundImage:"url(" + `${imagePath2}` + ")"
-    }}
+      backgroundImage:`url(${imagePath2})`}}
     className="banner"
     >
       <div className="text-white banner-text-area">
