@@ -9,7 +9,7 @@ const MovieSlider = ({title, movies, responsive}) => {
   return (
 	<div>
 		<h3>{title}</h3>
-		<Carousel
+		<Carousel 
 			infinite={true}
 			centerMode={true}
 			itemClass="movie-slider p-1"

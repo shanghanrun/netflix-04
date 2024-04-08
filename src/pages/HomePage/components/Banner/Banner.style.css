@@ -15,3 +15,9 @@
 	height: 56vh;
 	width: 100%;
 }
+
+@meaia (max-width:480px) {
+	.banner-overview {
+		display: none
+	}
+}

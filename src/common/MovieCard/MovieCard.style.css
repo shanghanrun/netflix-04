@@ -35,3 +35,11 @@
 	width: 100px;
 	margin-bottom: 10px;
 }
+
+@meaia (max-width:480px) {
+	.movie-card {
+		/* height: 330px; */
+		width: 100%;
+		background-size: cover;
+	}
+}
