@@ -3,7 +3,7 @@ import { useSearchParams} from 'react-router-dom'
 import { useMovieStore } from '../../store/movieStore'
 import { useSearchMovies } from '../../hooks/useSearchMovies'
 import { Alert } from 'react-bootstrap';
-import {Container, Row, Col} from 'react-bootstrap';
+import {Container, Row, Col, Spinner} from 'react-bootstrap';
 import MovieCard from '../../common/MovieCard/MovieCard';
 import ReactPaginate from 'react-paginate';
 
@@ -18,6 +18,7 @@ const MoviesPage = () => {
   const [page, setPage] = useState(1);
   const [movies, setMovies] = useState([])
   const {movieList, setMovieList} = useMovieStore();
+
 
   const {data, isLoading, isError, error} = useSearchMovies({keyword, page})
   console.log('searched data :', data)
@@ -34,7 +35,11 @@ const MoviesPage = () => {
   },[data])
 
   if(isLoading){
-    return <h1>Loading...</h1>
+    return (
+      <div className='spinner-area'>
+        <Spinner animation="border" variant="danger" style={{width:'5rem', height:'5rem'}} />
+      </div>
+    )
   }
   if(isError){
     return <Alert variant="danger">{error.message}</Alert>
@@ -43,6 +48,7 @@ const MoviesPage = () => {
     <Container style={{color:'white'}}>
       <Row>
         <Col lg={4} xs={12}>
+          <div>필터</div>
           {/* <SortDropdown setMovies={setMovies}/>
           <FilterDropdown 
             setYearStart={setYearStart}
