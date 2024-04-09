@@ -48,8 +48,13 @@ const MovieCard = ({movie}) => {
 					{movie.popularity}
 				</div>
 				<div>
-					{movie.adult? <Badge className='adult' bg="danger">19</Badge>
-						: <Badge className="all" bg="success">All</Badge>}
+					{/* {movie.adult? <Badge className='adult' bg="danger">19</Badge>
+						: <Badge className="all" bg="success">All</Badge>} */}
+					{Math.random() > 0.7 ? (
+						<Badge className='adult' bg="danger">19</Badge>
+					) : (
+						<Badge className="all" bg="success">All</Badge>
+					)}
 				</div>
 			</div>
 		</div>
