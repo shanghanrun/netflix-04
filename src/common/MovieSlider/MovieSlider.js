@@ -14,6 +14,8 @@ const MovieSlider = ({title, movies, responsive}) => {
 			centerMode={true}
 			itemClass="movie-slider p-1"
 			containerClass="carousel-container"
+			// autoPlay={this.props.deviceType !== "mobile" ? true : false}
+			// autoPlaySpeed={1000}
 			responsive={responsive} >
 				
 			{movies.map((movie, index)=>

@@ -24,8 +24,8 @@ const MovieDetail = () => {
   }
   const showRecommendations=()=>{
     setIsSimilar(false)
-
   }
+  
   if(isLoading){
 		return <h1>Loading...</h1>
 	}
