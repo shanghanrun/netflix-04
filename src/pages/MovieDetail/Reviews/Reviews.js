@@ -1,11 +1,21 @@
-import React from 'react'
-import {Alert, Container} from 'react-bootstrap'
+import React, {useState} from 'react'
+import {Alert, Container, Button} from 'react-bootstrap'
 import { useReviews } from '../../../hooks/useReviews';
 
 
 const Reviews = ({id}) => {
 	const {data,isLoading, isError,error} = useReviews({id});
   	console.log('Reviews :', data);
+	const [expandedId, setExpandedId] = useState(null);
+
+    const toggleExpanded = (reviewId) => {
+        if (expandedId === reviewId) {
+            setExpandedId(null);
+        } else {
+            setExpandedId(reviewId);
+        }
+    };
+
 
   	if(isLoading){
 	return <h1>Loading...</h1>
@@ -15,16 +25,26 @@ const Reviews = ({id}) => {
 	}
 
   return (
-	<Container className="review"> 
-		{data.results.map((item, index)=>
-			(<div key={index}>
-				<div>{item.author}</div>
-				<div>{item.content}</div>
-				<div>{item.created_at}</div>
-			</div>)
-		)}
-	</Container>
-  )
+        <Container className="review">
+            {data.results.length > 0 
+				?(data.results.map((item, index) => (
+					<div key={index} style={{ border: '2px solid gray', padding: '10px', marginBottom: '5px' }}>
+						<h5 style={{ color: '#59abfd' }}>Author: {item.author}</h5>
+						<div>
+							{expandedId === item.id ? item.content : `${item.content.slice(0, 300)}${item.content.length > 300 ? '...' : ''}`}
+						</div>
+						{item.content.length > 300 && (
+							<Button variant="link" onClick={() => toggleExpanded(item.id)}>
+								{expandedId === item.id ? '접기' : '더보기'}
+							</Button>
+						)}
+						<div style={{ color: 'gray' }}>{item.created_at}</div>
+					</div>)))
+				: (
+					<div>No Reviews</div>
+			)}
+        </Container>
+    );
 }
 
 export default Reviews;

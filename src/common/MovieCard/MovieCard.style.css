@@ -47,7 +47,7 @@
 	padding: 3px;
 }
 
-@meaia (max-width:480px) {
+@media (max-width:480px) {
 	.movie-card {
 		/* height: 330px; */
 		width: 100%;

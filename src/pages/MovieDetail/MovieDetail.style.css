@@ -1,9 +1,11 @@
 
 
-
-.badge{
-	margin: 20px 0;
-	display: flex;
-	justify-content: start;
-	gap: 10px;
+.similar, .recommendations{
+	transition: all 0.2s;
+}
+.similar:hover{
+	transform: scale(1.15)
+}
+.recommendations:hover{
+	transform: scale(1.1)
 }
