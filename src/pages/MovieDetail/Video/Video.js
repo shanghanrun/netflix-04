@@ -34,11 +34,13 @@ const Video = ({id}) => {
 		return <Alert vairant="danger">{error.message}</Alert>
 	}
 	console.log('data.results : ', data?.results)
-	console.log('key :', data?.results[0].key)
+	// console.log('key :', data?.results[0].key)
 	return (
         <div>
-            {data.results.map((item, index) => (
-                <Button key={index} variant="primary" onClick={() => handleShowModal(item.key)}
+			{/* 비디오 결과가 존재하고 그 길이가 0보다 클 때 버튼을 렌더링합니다. */}
+            {data.results.length>0 && data.results.map((item, index) => (
+                <Button key={index} variant="primary" 
+					onClick={() => handleShowModal(item.key)}
 					style={{marginRight: '5px', marginBottom:'5px'}}
 				>
                     예고편 {index + 1} 보기
@@ -51,7 +53,9 @@ const Video = ({id}) => {
                 </Modal.Header>
 
                 <Modal.Body>
-                    <YouTube videoId={selectedVideo} opts={opts} onReady={_onReady} />
+					{/* 선택된 비디오가 존재할 때만 YouTube 비디오를 표시합니다. */}
+                    {data.results.length>0 && <YouTube videoId={selectedVideo} opts={opts} 
+					onReady={_onReady} />}
                 </Modal.Body>
 
                 <Modal.Footer>
