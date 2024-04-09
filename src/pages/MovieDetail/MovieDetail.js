@@ -42,7 +42,7 @@ const MovieDetail = () => {
               <img src={imagePath+data.poster_path} width={600} alt=''/>
             </div>
           </Col>
-          <Col lg={6} xs={12}>
+          <Col lg={6} xs={12} style={{}}>
             <h1>Title : {data.title}</h1>
             <h3 style={{color:'#87b4f8', fontWeight:'bold'}}>{data.tagline}</h3>
             <h4>Story : {data.overview}</h4>

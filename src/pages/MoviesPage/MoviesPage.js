@@ -9,6 +9,7 @@ import ReactPaginate from 'react-paginate';
 import SortDropdown from './components/SortDropdown';
 import FilterDropdown from './components/FilterDropdown';
 import GenreDropdown from './components/GenreDropdown';
+import './MoviePage.style.css'
 
 // 여기로 오는 경로 2가지
 // navbar 링크를 통해 온 경우 ==> popularMovies를 보여준다.
@@ -75,7 +76,7 @@ const MoviesPage = () => {
   return (
     <Container style={{color:'white'}}>
       <Row>
-        <Col lg={4} xs={12} style={{border: '1px solid red', borderRadius:'10px', marginBottom: '20px' }}>
+        <Col lg={4} xs={12} style={{border: '2px solid red', borderRadius:'10px', marginBottom: '20px' }}>
           <div style={{margin:"10px 0"}}>필터</div>
           <SortDropdown setMovies={setMovies} />
           <FilterDropdown
