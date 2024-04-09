@@ -6,6 +6,9 @@ import { Alert } from 'react-bootstrap';
 import {Container, Row, Col, Spinner} from 'react-bootstrap';
 import MovieCard from '../../common/MovieCard/MovieCard';
 import ReactPaginate from 'react-paginate';
+import SortDropdown from './components/SortDropdown';
+import FilterDropdown from './components/FilterDropdown';
+import GenreDropdown from './components/GenreDropdown';
 
 // 여기로 오는 경로 2가지
 // navbar 링크를 통해 온 경우 ==> popularMovies를 보여준다.
@@ -19,6 +22,11 @@ const MoviesPage = () => {
   const [movies, setMovies] = useState([])
   const {movieList, setMovieList} = useMovieStore();
 
+  const [yearStart, setYearStart] = useState(2001)
+	const [yearEnd, setYearEnd] = useState(2024)
+  const [scoreStart, setScoreStart] = useState(2001)
+	const [scoreEnd, setScoreEnd] = useState(2024)
+
 
   const {data, isLoading, isError, error} = useSearchMovies({keyword, page})
   console.log('searched data :', data)
@@ -26,6 +34,21 @@ const MoviesPage = () => {
   const handlePageClick=({selected})=>{
     setPage(selected +1)
   }
+  function filterMovies(){
+		console.log('year Start: ', yearStart)
+		console.log('year End:', yearEnd)
+		console.log('score Start: ', scoreStart)
+		console.log('score End:', scoreEnd)
+		const newList = movieList.filter(movie => {
+			const movieYear = new Date(movie.release_date).getFullYear();
+      const movieScore = movie.vote_average;
+
+			return movieYear >=yearStart && movieYear<= yearEnd 
+             && movieScore >=scoreStart && movieScore <= scoreEnd ;
+			})
+		console.log('filtered Movie:', newList)
+    return newList
+	}
 
   useEffect(()=>{
     if(data){
@@ -33,6 +56,11 @@ const MoviesPage = () => {
       setMovieList(data.results)
     }
   },[data])
+
+   useEffect(()=>{
+		setMovies(filterMovies())
+	},[yearStart, yearEnd, scoreStart, scoreEnd])
+
 
   if(isLoading){
     return (
@@ -47,16 +75,16 @@ const MoviesPage = () => {
   return (
     <Container style={{color:'white'}}>
       <Row>
-        <Col lg={4} xs={12}>
-          <div>필터</div>
-          {/* <SortDropdown setMovies={setMovies}/>
-          <FilterDropdown 
+        <Col lg={4} xs={12} style={{border: '1px solid red', borderRadius:'10px', marginBottom: '20px' }}>
+          <div style={{margin:"10px 0"}}>필터</div>
+          <SortDropdown setMovies={setMovies} />
+          <FilterDropdown
             setYearStart={setYearStart}
             setYearEnd={setYearEnd}
             setScoreStart={setScoreStart}
             setScoreEnd={setScoreEnd}
-            />
-          <GenreDropdown setMovies={setMovies}/> */}
+          />
+          <GenreDropdown setMovies={setMovies}/>
         </Col>
         <Col lg={8} xs={12}>
           <Row>  
