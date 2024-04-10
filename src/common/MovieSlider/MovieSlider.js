@@ -11,9 +11,10 @@ const MovieSlider = ({title, movies, responsive}) => {
 		<h3>{title}</h3>
 		<Carousel 
 			infinite={true}
-			centerMode={true}
+			// centerMode={true}
 			itemClass="movie-slider p-1"
 			containerClass="carousel-container"
+			partialVisible={true}
 			// autoPlay={this.props.deviceType !== "mobile" ? true : false}
 			// autoPlaySpeed={1000}
 			responsive={responsive} >

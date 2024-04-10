@@ -1,6 +1,6 @@
 import React from 'react'
 import './MovieCard.style.css'
-import {Badge} from 'react-bootstrap'
+import {Badge, Card} from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUsers } from '@fortawesome/free-solid-svg-icons'
 import { useMovieGenres } from '../../hooks/useMovieGenres'
@@ -29,6 +29,7 @@ const MovieCard = ({movie}) => {
 	}
 
   return (
+	
 	<div className="movie-card" style={{backgroundImage: `url(${imagePath}${movie.poster_path}`}}
 		onClick={()=>gotoDetail(movie.id)}
 	>		
@@ -48,13 +49,8 @@ const MovieCard = ({movie}) => {
 					{movie.popularity}
 				</div>
 				<div>
-					{/* {movie.adult? <Badge className='adult' bg="danger">19</Badge>
-						: <Badge className="all" bg="success">All</Badge>} */}
-					{Math.random() > 0.7 ? (
-						<Badge className='adult' bg="danger">19</Badge>
-					) : (
-						<Badge className="all" bg="success">All</Badge>
-					)}
+					{movie.adult? <Badge className='adult' bg="danger">19</Badge>
+						: <Badge className="all" bg="success">All</Badge>}
 				</div>
 			</div>
 		</div>
