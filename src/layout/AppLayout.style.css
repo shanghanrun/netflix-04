@@ -1,5 +1,5 @@
 .home,
-.movies {
+.movies, .reserve, .choice {
 	color: white;
 }
 
@@ -8,6 +8,14 @@
 	background: rgb(250, 67, 97)
 }
 
+.reserve:hover {
+	border-radius: 3px;
+	background: rgb(250, 67, 97)
+}
+.choice:hover {
+	border-radius: 3px;
+	background: rgb(250, 67, 97)
+}
 .movies:hover {
 	border-radius: 3px;
 	background: rgb(250, 67, 97)

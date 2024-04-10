@@ -8,6 +8,8 @@ import HomePage from './pages/HomePage/HomePage';
 import MoviesPage from './pages/MoviesPage/MoviesPage';
 import MovieDetail from './pages/MovieDetail/MovieDetail';
 import NotFound from './pages/NotFound/NotFound';
+import ReservePage from './pages/ReservePage/ReservePage';
+import ChoicePage from './pages/ChoicePage/ChoicePage';
 
 //홈페이지    /
 //영화전체 보여주는 페이지(서치)   /movies
@@ -23,7 +25,10 @@ function App() {
           <Route index element={<MoviesPage/>} />
           <Route path=':id' element={<MovieDetail/>} />
         </Route>
+        <Route path='/reserve' element={<ReservePage />}/>
+        <Route path='/choice' element={<ChoicePage />}/>
       </Route> 
+      
       <Route path='/admin' element={<AdminLayout/>} />
       <Route path='*' element={<NotFound />} />
     </Routes>

@@ -1,6 +1,6 @@
 import React from 'react'
 import './MovieCard.style.css'
-import {Badge, Card} from 'react-bootstrap'
+import {Badge} from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUsers } from '@fortawesome/free-solid-svg-icons'
 import { useMovieGenres } from '../../hooks/useMovieGenres'
