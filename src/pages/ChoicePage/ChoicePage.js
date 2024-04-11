@@ -1,4 +1,4 @@
-import  { useState, useEffect } from 'react';
+import  { useState, useEffect, useRef } from 'react';
 import {useNavigate} from 'react-router-dom'
 import './ChoicePage.style.css'; // 스타일 파일을 가져옵니다.
 
@@ -62,10 +62,11 @@ const titles = [
 ];
 
 function ChoicePage() {
-    const [isFirstClick, setIsFirstClick] = useState(true);
-    const [prevAngle, setPrevAngle] = useState(0);
-    const [reserveButton, setReserveButton] = useState(null);
-    const [cardIndex, setCardIndex] = useState(-1);
+    const isFirstClick = useRef(true);
+    const prevAngle = useRef(0);
+    const reserveButton = useRef(null);
+    const cardIndex = useRef(-1);
+    const [init, setInit] = useState(false);
 
 	const navigate = useNavigate()
 
@@ -134,29 +135,28 @@ function ChoicePage() {
                 document.body.removeChild(card);
             });
         };
-    }, []); // useEffect가 최초 렌더링 시에만 실행되도록 []를 전달합니다.
+    }, [init]); // useEffect가 최초 렌더링 시에만 실행되도록 []를 전달합니다.
 
     const handleCardClick = (card, index) => {
-        if (isFirstClick) {
-            setCardIndex(index);
-            localStorage.setItem('cardIndex', index);
-            moveToCenter(card);
-            setIsFirstClick(false);
-            card.querySelector('img').classList.add('isSecond');
-            card.querySelector('img').style.transform = 'scale(3)';
-
+        if (isFirstClick.current) {
+            // 이전의 회전 각도를 직접 DOM 요소에 저장합니다.
             const cardRect = card.getBoundingClientRect();
             const centerX = window.innerWidth / 2;
             const centerY = window.innerHeight / 2;
             const deltaX = cardRect.left + cardRect.width / 2 - centerX;
             const deltaY = cardRect.top + cardRect.height / 2 - centerY;
-            setPrevAngle(Math.atan2(deltaY, deltaX) * (180 / Math.PI));
+            prevAngle.current = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
+
+            card.querySelector('img').classList.add('isSecond');
+            card.querySelector('img').style.transform = 'scale(3)';
+            
+            moveToCenter(card)
 
             const button = document.createElement('button');
 			button.textContent = '좌석예약';
 			button.classList.add('reserve-button');
 			button.addEventListener('click', handleReserveClick);
-			setReserveButton(button); // reserveButton을 button으로 설정
+			reserveButton.current =button; // reserveButton을 button으로 설정
 			card.appendChild(button);
 
 			document.querySelectorAll('.card').forEach((card, i) => {
@@ -164,22 +164,25 @@ function ChoicePage() {
 					card.classList.add('transparent');
 				}
 			});
+            // 클릭 이벤트 발생 후 isFirstClick를 false로 설정
+            isFirstClick.current = false;
         } else {
-            rotateToPreviousAngle(card, prevAngle + 90);
-            setIsFirstClick(true);
+            
             card.querySelector('img').classList.remove('isSecond');
-            card.querySelector('img').style.transform = 'scale(1)';
 
-            if (reserveButton) {
-                reserveButton.remove();
-                setReserveButton(null);
+            if (reserveButton.current) {
+                reserveButton.current.remove();
+                reserveButton.current = null;
             }
 
             document.querySelectorAll('.card').forEach((card, i) => {
-                if (i !== cardIndex) {
+                if (i !== index) {// 수정된 부분: cardIndex가 아닌 클릭한 카드의 index를 사용합니다.
                     card.classList.remove('transparent');
                 }
             });
+            // 클릭 이벤트 발생 후 isFirstClick를 true로 설정
+            isFirstClick.current = true;
+            setInit(!init)
         }
     };
 
