@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import {useNavigate} from 'react-router-dom'
 import './ChoicePage.style.css'; // 스타일 파일을 가져옵니다.
 

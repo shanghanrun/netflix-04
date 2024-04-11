@@ -61,7 +61,7 @@ const Reserve = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container" style={{color:'black'}}>
       <h2 id="room">{localStorage.getItem('room')} 영화 좌석</h2>
       <div className="screen">
         <h2 id="screen">Screen</h2>
@@ -70,14 +70,16 @@ const Reserve = () => {
         {createSeats().map((seat, index) => (
           <div
             key={index}
-            className={`seat ${seat.isOccupied ? 'occupied' : ''} ${seat.isHidden ? 'hidden' : ''} ${seat.col === 1 || (seat.row === 17 && seat.col >= 2) ? 'disable' : ''}`}
+            className={`seat ${seat.isOccupied ? 'occupied' : ''} ${seat.isHidden ? 'hidden' : ''} ${seat.col === 1 || (seat.row === 17 && seat.col >= 2) ? 'disable' : ''} ${list.includes(`${seat.yValue}${seat.xValue}`) ? 'selected' : ''}`}
             onClick={() => handleSeatClick(seat)}
           >
             {seat.col === 1 && seat.row !== 17 ? seat.yValue : seat.row === 17 ? seat.xValue : ''}
           </div>
         ))}
       </div>
-      <h3 className="result">선택한 좌석: {list.join(', ')}</h3>
+      <h3 className="result" 
+        style={{fontWeight:'bold', background:'#dddddd'}}>
+          선택한 좌석: {list.join(', ')}</h3>
       <span id="reserved">예약된 좌석</span>
       <button onClick={sendData} id="confirm">좌석예약 확정</button>
     </div>
