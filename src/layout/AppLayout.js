@@ -52,6 +52,7 @@ const AppLayout = () => {
 						{/* <Nav.Link className="home" href="/">Home</Nav.Link>  */}
 						<MyNavLink to="/" state={{ title, seatList }}>Home</MyNavLink>
 						<Nav.Link className="movies" href="/movies">Movies</Nav.Link>
+						{/* <Nav.Link className="time" href="/time">Time</Nav.Link> */}
 						<Nav.Link className="choice" href="/choice">Choice</Nav.Link>
 						<Nav.Link className="reserve" href="/reserve">Reserve</Nav.Link>
 						<MyNavLink to="/mypage" state={{ title, seatList }}>MyPage</MyNavLink>

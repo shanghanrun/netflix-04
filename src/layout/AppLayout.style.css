@@ -1,5 +1,5 @@
 .home,
-.movies, .reserve, .choice{
+.movies, .reserve, .choice, .time{
 	color: white;
 }
 .mypage {
@@ -14,7 +14,8 @@
 	border-radius: 3px;
 	background: rgb(250, 67, 97)
 }
-.reserve:hover {
+
+.time:hover {
 	border-radius: 3px;
 	background: rgb(250, 67, 97)
 }
@@ -22,7 +23,10 @@
 	border-radius: 3px;
 	background: rgb(250, 67, 97)
 }
-
+.reserve:hover {
+	border-radius: 3px;
+	background: rgb(250, 67, 97)
+}
 .mypage:hover {
 	color: aquamarine;
 	border-radius: 3px;

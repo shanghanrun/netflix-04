@@ -88,7 +88,7 @@ const MoviesPage = () => {
           <GenreDropdown setMovies={setMovies}/>
         </Col>
         <Col lg={8} xs={12}>
-          <Row>  
+          <Row >  
             {movies.map((movie, index)=>
               <Col key={index} lg={4} xs={12}>
                 <MovieCard movie={movie} />

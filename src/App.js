@@ -11,6 +11,7 @@ import NotFound from './pages/NotFound/NotFound';
 import ReservePage from './pages/ReservePage/ReservePage';
 import ChoicePage from './pages/ChoicePage/ChoicePage';
 import MyPage from './pages/MyPage/MyPage';
+import TimePage from './pages/TimePage/TimePage';
 
 //홈페이지    /
 //영화전체 보여주는 페이지(서치)   /movies
@@ -26,8 +27,9 @@ function App() {
           <Route index element={<MoviesPage/>} />
           <Route path=':id' element={<MovieDetail/>} />
         </Route>
-        <Route path='/reserve' element={<ReservePage />}/>
+        <Route path='/time' element={<TimePage />}/>
         <Route path='/choice' element={<ChoicePage />}/>
+        <Route path='/reserve' element={<ReservePage />}/>
         <Route path='/mypage' element={<MyPage />}/>
       </Route> 
       
