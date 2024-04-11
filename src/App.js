@@ -10,6 +10,7 @@ import MovieDetail from './pages/MovieDetail/MovieDetail';
 import NotFound from './pages/NotFound/NotFound';
 import ReservePage from './pages/ReservePage/ReservePage';
 import ChoicePage from './pages/ChoicePage/ChoicePage';
+import MyPage from './pages/MyPage/MyPage';
 
 //홈페이지    /
 //영화전체 보여주는 페이지(서치)   /movies
@@ -27,6 +28,7 @@ function App() {
         </Route>
         <Route path='/reserve' element={<ReservePage />}/>
         <Route path='/choice' element={<ChoicePage />}/>
+        <Route path='/mypage' element={<MyPage />}/>
       </Route> 
       
       <Route path='/admin' element={<AdminLayout/>} />

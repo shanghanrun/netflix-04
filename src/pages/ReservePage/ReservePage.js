@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import './ReservePage.style.css'; // CSS 파일을 가져옵니다.
+import { useMovieStore } from '../../store/movieStore';
+import {Modal, Button} from 'react-bootstrap'
+import {useNavigate} from 'react-router-dom'
 
 const Reserve = () => {
   const [list, setList] = useState([]);
+  const {title, setSeatList} = useMovieStore()
+  const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate()
   
   const alphabet = ['', 'A', 'B', 'C', 'D', 'X', 'E', 'F', 'G', 'H', 'I', 'X','J', 'K', 'L', 'M', 'N', 'O'];
   const occuppiedList = [ 
@@ -54,11 +60,21 @@ const Reserve = () => {
     }
   };
 
-  const sendData = () => {
-    const seatData = JSON.stringify(list);
-    localStorage.setItem('seat', seatData);
-    // 모달 표시 로직 등...
-  };
+  // const sendData = () => {
+  //   const seatData = JSON.stringify(list);
+  //   localStorage.setItem('seat', seatData);
+  //   // 모달 표시 로직 등...
+  // };
+  function showConfirm(){
+    //모달창 보이게 하기
+    setShowModal(true)
+    setSeatList(list)
+    setTimeout(() => {
+      navigate('/')
+    }, 4000);
+    
+  }
+  const handleCloseModal = () => setShowModal(false);
 
   return (
     <div className="container" style={{color:'black'}}>
@@ -81,7 +97,28 @@ const Reserve = () => {
         style={{fontWeight:'bold', background:'#dddddd'}}>
           선택한 좌석: {list.join(', ')}</h3>
       <span id="reserved">예약된 좌석</span>
-      <button onClick={sendData} id="confirm">좌석예약 확정</button>
+      <button onClick={showConfirm} id="confirm">좌석예약 확정</button>
+
+        <Modal show={showModal} onHide={handleCloseModal} size="lg">
+                <Modal.Header closeButton>
+                    <Modal.Title>영화 좌석예약</Modal.Title>
+                </Modal.Header>
+
+                <Modal.Body>
+                  <h3 style={{fontWeight:'bold'}}>제목 : {title}</h3>
+                  <h3>예약 좌석</h3>
+                  <div style={{borderBottom: '2px solid gray', width: '400px', marginBottom: '10px' }}></div>
+                  <div>[ {list.join(', ')} ]</div>
+                  <div>잠시후 Home으로 자동 이동합니다...</div>
+                </Modal.Body>
+
+                <Modal.Footer>
+                    <Button variant="primary" onClick={handleCloseModal}>
+                        확인
+                    </Button>
+                </Modal.Footer>
+        </Modal>
+
     </div>
   );
 };

@@ -36,6 +36,7 @@ const AppLayout = () => {
 						<Nav.Link className="movies" href="/movies">Movies</Nav.Link>
 						<Nav.Link className="choice" href="/choice">Choice</Nav.Link>
 						<Nav.Link className="reserve" href="/reserve">Reserve</Nav.Link>
+						<Nav.Link className="mypage" href="/mypage">MyPage</Nav.Link>
 					</Nav>
 					<Form ref={formRef} className="d-flex" 
 						onSubmit={searchByKeyword}>

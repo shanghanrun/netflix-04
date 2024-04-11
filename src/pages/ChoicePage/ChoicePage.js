@@ -1,6 +1,7 @@
 import  { useState, useEffect, useRef } from 'react';
 import {useNavigate} from 'react-router-dom'
 import './ChoicePage.style.css'; // 스타일 파일을 가져옵니다.
+import { useMovieStore } from '../../store/movieStore';
 
 const images = [
 	'https://search3.kakaocdn.net/argon/656x0_80_wr/Fdw60fejriu',
@@ -67,6 +68,7 @@ function ChoicePage() {
     const reserveButton = useRef(null);
     const cardIndex = useRef(-1);
     const [init, setInit] = useState(false);
+    const {setIndex, setTitle} = useMovieStore()
 
 	const navigate = useNavigate()
 
@@ -166,6 +168,7 @@ function ChoicePage() {
 			});
             // 클릭 이벤트 발생 후 isFirstClick를 false로 설정
             isFirstClick.current = false;
+            cardIndex.current = index;
         } else {
             
             card.querySelector('img').classList.remove('isSecond');
@@ -176,12 +179,13 @@ function ChoicePage() {
             }
 
             document.querySelectorAll('.card').forEach((card, i) => {
-                if (i !== index) {// 수정된 부분: cardIndex가 아닌 클릭한 카드의 index를 사용합니다.
+                if (i !== index) {
                     card.classList.remove('transparent');
                 }
             });
             // 클릭 이벤트 발생 후 isFirstClick를 true로 설정
             isFirstClick.current = true;
+            cardIndex.current = -1;
             setInit(!init)
         }
     };
@@ -194,19 +198,22 @@ function ChoicePage() {
         card.style.transform = `translate(${centerX - cardRect.width / 2 - cardRect.left}px, ${centerY - cardRect.height / 2 - cardRect.top}px)`;
     };
 
-    const rotateToPreviousAngle = (card, angle) => {
-        if (angle < 0) {
-            angle += 360;
-        }
-        card.style.transition = 'transform 0.5s ease';
-        card.style.transform = `rotate(${angle}deg)`;
-    };
+    // const rotateToPreviousAngle = (card, angle) => {
+    //     if (angle < 0) {
+    //         angle += 360;
+    //     }
+    //     card.style.transition = 'transform 0.5s ease';
+    //     card.style.transform = `rotate(${angle}deg)`;
+    // };
 
     const handleReserveClick = () => {
-        const index = localStorage.getItem('cardIndex');
+        const index = cardIndex.current;
         const title = titles[index];
-        localStorage.setItem('title', title);
         console.log('좌석예약 버튼 클릭');
+        console.log('index :', index)
+        console.log('title :',title)
+        setIndex(index)
+        setTitle(title)
         navigate('/reserve');
     };
 
