@@ -19,10 +19,17 @@ const MovieDetail = () => {
   console.log('detail movie :', data);
 
   const [isSimilar, setIsSimilar] =useState(true)
+  const [similarClicked, setSimilarClicked] = useState(true);
+  const [recommendationsClicked, setRecommendationsClicked] = useState(false);
+
   const showSimilarMovies=()=>{
+    setSimilarClicked(true);
+    setRecommendationsClicked(false);
     setIsSimilar(true)
   }
   const showRecommendations=()=>{
+    setSimilarClicked(false); 
+    setRecommendationsClicked(true);
     setIsSimilar(false)
   }
   
@@ -64,8 +71,15 @@ const MovieDetail = () => {
       </Container>
       <Container className="related-movie-area" style={{marginTop: '20px', marginBottom:'10px'}}>
         <div className='badge'>
-          <Badge variant="danger" className="bg-danger similar" style={{marginRight:'10px', padding:'10px', cursor:'pointer'}} onClick={showSimilarMovies}>연관영화</Badge>
-          <Badge variant="primary" className='bg-primary recommendations'style={{padding:'10px',  cursor:'pointer'}} onClick={showRecommendations}>추천영화</Badge>
+          <Badge variant={similarClicked ? "danger": "light"} 
+            className={similarClicked ? "bg-danger similar active" : "bg-light similar inactive"}
+            style={{marginRight:'10px', padding:'10px', cursor:'pointer'}} 
+            onClick={showSimilarMovies}>연관영화</Badge>
+
+          <Badge variant={recommendationsClicked ? "primary" : "light"}
+            className={recommendationsClicked ? "bg-primary recommendations active" : "bg-light recommendations inactive"}
+            style={{padding:'10px',  cursor:'pointer'}} 
+            onClick={showRecommendations}>추천영화</Badge>
         </div>
         <div>
           {isSimilar ?<SimilarMovies id={id}/> : <Recommendations id={id} />}
