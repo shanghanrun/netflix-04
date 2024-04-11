@@ -1,6 +1,6 @@
 import React from 'react'
 import {Alert, Container} from 'react-bootstrap'
-import MovieCard from '../../../common/MovieCard/MovieCard';
+import MovieCard2 from '../../../common/MovieCard/MovieCard2';
 import { useSimilarMovies } from '../../../hooks/useSimilarMovies';
 
 
@@ -18,7 +18,7 @@ const SimilarMovies = ({id}) => {
   return (
 	<Container className="d-flex justify-content-center flex-wrap gap-2"> 
 		{data.results.map((movie, index)=>
-			<MovieCard movie={movie} key={index} />
+			<MovieCard2 movie={movie} key={index} />
 		)}
 	</Container>
   )

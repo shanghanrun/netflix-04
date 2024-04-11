@@ -46,15 +46,15 @@ const MovieDetail = () => {
         <Row>
           <Col lg={6} xs={12}>
             <div>
-              <img src={imagePath+data.poster_path} width={600} alt=''/>
+              <img src={imagePath+data.poster_path} width='90%' height="450px" alt=''/>
             </div>
           </Col>
           <Col lg={6} xs={12} style={{}}>
             <h1>Title : {data.title}</h1>
             <h3 style={{color:'#87b4f8', fontWeight:'bold'}}>{data.tagline}</h3>
             <h4>Story : {data.overview}</h4>
-            <div><FontAwesomeIcon icon={faUsers} /> {data.popularity}</div>
-            <div>Genres : 
+            <div className="d-none d-lg-block"><FontAwesomeIcon icon={faUsers} /> {data.popularity}</div>
+            <div className="d-none d-lg-block">Genres : 
                 {data.genres && data.genres.map(genre => (
                     <span key={genre.id}>{genre.name}, </span>
                 ))}
@@ -62,10 +62,10 @@ const MovieDetail = () => {
               {/* <span> {data.genres[0].name}, </span>
               <span>{data.genres[1].name}</span> */}
             </div>
-            <div>Budget : {data.budget}</div>
-            <div>Revenue : {data.revenue}</div>
-            <div>RunTime : {data.runtime}</div>
-            <div>Release Date : {data.release_date}</div>
+            <div className="d-none d-lg-block">Budget : {data.budget}</div>
+            <div className="d-none d-lg-block">Revenue : {data.revenue}</div>
+            <div className="d-none d-lg-block">RunTime : {data.runtime}</div>
+            <div className="d-none d-lg-block">Release Date : {data.release_date}</div>
           </Col>
         </Row>
       </Container>
