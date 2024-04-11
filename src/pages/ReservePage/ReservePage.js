@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom'
 
 const Reserve = () => {
   const [list, setList] = useState([]);
-  const {title, setSeatList} = useMovieStore()
+  const {title, setTitle, setSeatList} = useMovieStore()
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate()
   
@@ -68,9 +68,12 @@ const Reserve = () => {
   function showConfirm(){
     //모달창 보이게 하기
     setShowModal(true)
+    setTitle(title)
     setSeatList(list)
+    console.log('title :',title)
+    console.log('seatList : ', list)
     setTimeout(() => {
-      navigate('/')
+      navigate('/mypage')
     }, 4000);
     
   }
@@ -109,7 +112,7 @@ const Reserve = () => {
                   <h3>예약 좌석</h3>
                   <div style={{borderBottom: '2px solid gray', width: '400px', marginBottom: '10px' }}></div>
                   <div>[ {list.join(', ')} ]</div>
-                  <div>잠시후 Home으로 자동 이동합니다...</div>
+                  <div>잠시후 MyPage로 자동 이동합니다...</div>
                 </Modal.Body>
 
                 <Modal.Footer>

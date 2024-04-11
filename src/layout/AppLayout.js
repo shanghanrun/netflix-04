@@ -3,8 +3,25 @@ import {useNavigate} from 'react-router-dom'
 import {Button, Container, Form, Nav, Navbar} from 'react-bootstrap';
 import {Outlet} from 'react-router-dom'
 import './AppLayout.style.css'
+import { useMovieStore } from '../store/movieStore';
+
+const MyNavLink = ({ to, state, children }) => {
+  const navigate = useNavigate();
+
+  const handleClick = (event) => {
+    event.preventDefault();
+    navigate(to, { state });
+  };
+
+  return (
+    <Nav.Link className="nav-link mypage" href={to} onClick={handleClick}>
+      {children}
+    </Nav.Link>
+  );
+};
 
 const AppLayout = () => {
+	const {title, seatList} = useMovieStore()
 	const formRef = useRef()
 	const navigate = useNavigate()
 	const searchByKeyword=(e)=>{
@@ -32,11 +49,13 @@ const AppLayout = () => {
 					style={{ maxHeight: '100px' }}
 					navbarScroll
 					>
-						<Nav.Link className="home" href="/">Home</Nav.Link>
+						{/* <Nav.Link className="home" href="/">Home</Nav.Link>  */}
+						<MyNavLink to="/" state={{ title, seatList }}>Home</MyNavLink>
 						<Nav.Link className="movies" href="/movies">Movies</Nav.Link>
 						<Nav.Link className="choice" href="/choice">Choice</Nav.Link>
 						<Nav.Link className="reserve" href="/reserve">Reserve</Nav.Link>
-						<Nav.Link className="mypage" href="/mypage">MyPage</Nav.Link>
+						<MyNavLink to="/" state={{ title, seatList }}>Home</MyNavLink>
+						<MyNavLink to="/mypage" state={{ title, seatList }}>MyPage</MyNavLink>
 					</Nav>
 					<Form ref={formRef} className="d-flex" 
 						onSubmit={searchByKeyword}>

@@ -27,7 +27,7 @@ const Banner = () => {
     >
       <div className="text-white banner-text-area">
         <h1>{data?.results[0].title}</h1>
-        <p className='banner-overview'>{data?.results[0].overview}</p>
+        <p className='banner-overview'>{data?.results[0].overview.substring(0,180).trim()}...</p>
       </div>
     </div>
   )
