@@ -76,7 +76,7 @@ const MoviesPage = () => {
   return (
     <Container style={{color:'white'}}>
       <Row>
-        <Col lg={4} xs={12} style={{border: '2px solid red', borderRadius:'10px', marginBottom: '20px' }}>
+        <Col lg={4} xs={12} style={{border: '2px solid red', borderRadius:'10px', marginBottom: '20px', textAlign:'start', padding: '20px' }}>
           <div style={{margin:"10px 0"}}>필터</div>
           <SortDropdown setMovies={setMovies} />
           <FilterDropdown
