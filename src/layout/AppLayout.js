@@ -40,7 +40,7 @@ const AppLayout = () => {
 		<Navbar  expand="lg" >
 			<Container fluid>
 				<Navbar.Brand href="/">
-					<img src="./netflix.png" width={150} height={40} alt="로고" />
+					<img src="netflix.png" width={150} height={40} alt="로고" />
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="navbarScroll"/>
 				<Navbar.Collapse  id="navbarScroll" >
