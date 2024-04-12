@@ -45,7 +45,7 @@ const MovieDetail = () => {
       <Container >
         <Row>
           <Col lg={6} xs={12}>
-            <div>
+            <div style={{marginTop: '10px'}}>
               <img src={imagePath+data.poster_path} width='90%' height="450px" alt=''/>
             </div>
           </Col>

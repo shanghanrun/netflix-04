@@ -52,6 +52,10 @@ const MovieCard = ({movie}) => {
 					{movie.adult? <Badge className='adult' bg="danger">19</Badge>
 						: <Badge className="all" bg="success">All</Badge>}
 				</div>
+				<div style={{borderBottom: '1px solid white', marginTop:'5px'}}></div>
+				<div style={{fontWeight: 'normal', fontSize:'10px'}}> 
+					{movie.overview.substring(0,80)}...
+				</div>
 			</div>
 		</div>
 	</div>

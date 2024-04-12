@@ -30,7 +30,7 @@ const Reviews = ({id}) => {
 				?(data.results.map((item, index) => (
 					<div key={index} style={{ border: '2px solid gray', padding: '20px', marginBottom: '5px', marginRight:'25px' }}>
 						<h5 style={{ color: '#59abfd' }}>Author: {item.author}</h5>
-						<div>
+						<div style={{textAlign:'start'}}>
 							{expandedId === item.id ? item.content : `${item.content.slice(0, 300)}${item.content.length > 300 ? '...' : ''}`}
 						</div>
 						{item.content.length > 300 && (
