@@ -49,14 +49,14 @@ const MovieDetail = () => {
               <img src={imagePath+data.poster_path} width='90%' height="450px" alt=''/>
             </div>
           </Col>
-          <Col lg={6} xs={12} style={{}}>
+          <Col lg={6} xs={12} style={{textAlign: "start"}}>
             <h1>Title : {data.title}</h1>
             <h3 style={{color:'#87b4f8', fontWeight:'bold'}}>{data.tagline}</h3>
             <h4>Story : {data.overview}</h4>
-            <div className="d-none d-lg-block"><FontAwesomeIcon icon={faUsers} /> {data.popularity}</div>
+            <div className="d-none d-lg-block"><FontAwesomeIcon style={{color:'#ff00ff'}}icon={faUsers} /> {data.popularity}</div>
             <div className="d-none d-lg-block">Genres : 
                 {data.genres && data.genres.map(genre => (
-                    <span key={genre.id}>{genre.name}, </span>
+                    <span key={genre.id}><Badge>{genre.name}</Badge> </span>
                 ))}
 
               {/* <span> {data.genres[0].name}, </span>
