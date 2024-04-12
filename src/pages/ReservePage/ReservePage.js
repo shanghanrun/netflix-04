@@ -70,6 +70,14 @@ const Reserve = () => {
     setShowModal(true)
     setTitle(title)
     setSeatList(list)
+    // 화면의 링크를 통해 이동하면, store의 state값이 초기세팅되는 문제가 발생한다.
+    // 그래서 state값을 보존하기 위해 localStorage에 보관한다.
+    // 그러고서 화면에서 MyPage 링크로 들어가면 이것을 받아온다.
+    const seat = JSON.stringify(list)
+    const 제목 = JSON.stringify(title)
+    localStorage.setItem('title', 제목)
+    localStorage.setItem('seat', seat)
+    
     console.log('title :',title)
     console.log('seatList : ', list)
     setTimeout(() => {
