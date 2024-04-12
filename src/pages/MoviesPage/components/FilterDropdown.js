@@ -1,6 +1,7 @@
 import Dropdown from 'react-bootstrap/Dropdown';
 import YearFilter from './YearFilter';
 import ScoreFilter from './ScoreFilter';
+import ScoreSlider from './Score';
 
 const genres = [
   'Action', 'Adventure', 'Animation', 'Comedy', 'Crime', 'Documentary', 'Drama',
@@ -16,7 +17,10 @@ function FilterDropdown({setYearStart,setYearEnd,setScoreStart,setScoreEnd }) {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-		<Dropdown.Item >
+        <Dropdown.Item>
+          <ScoreSlider setScoreStart={setScoreStart} setScoreEnd={setScoreEnd}/>
+        </Dropdown.Item>
+		    <Dropdown.Item >
           <ScoreFilter setScoreStart={setScoreStart} setScoreEnd={setScoreEnd} />
         </Dropdown.Item>
 
