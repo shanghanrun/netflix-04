@@ -82,7 +82,7 @@ const Reserve = () => {
     console.log('seatList : ', list)
     setTimeout(() => {
       navigate('/mypage')
-    }, 4000);
+    }, 3000);
     
   }
   const handleCloseModal = () => setShowModal(false);
@@ -104,9 +104,11 @@ const Reserve = () => {
           </div>
         ))}
       </div>
-      <h3 className="result" 
-        style={{fontWeight:'bold', background:'#dddddd'}}>
-          선택한 좌석: {list.join(', ')}</h3>
+      <div className="result-area">
+        <h3 className="result" 
+          style={{fontWeight:'bold', background:'#dddddd'}}>
+            선택한 좌석: {list.join(', ')}</h3>
+      </div>
       <span id="reserved">예약된 좌석</span>
       <button onClick={showConfirm} id="confirm">좌석예약 확정</button>
 
