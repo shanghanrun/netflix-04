@@ -90,6 +90,7 @@ function ChoicePage() {
 
         const reservationText = document.createElement('div');
         reservationText.innerHTML = '첫클릭-> 가운데 <br> 재클릭-> 원위치';
+        reservationText.classList.add('reserve-text');
         reservationText.style.fontSize = '50px';
         reservationText.style.position = 'absolute';
         reservationText.style.top = centerY - 58 + 'px'; // 수직 중앙 정렬
