@@ -41,4 +41,7 @@
 .mypage {
   color: aquamarine
 }
+.dropdown-item input {
+  width: 300px
+}
 

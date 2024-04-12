@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import {ProgressBar} from 'react-bootstrap'
+import './YearEnd.style.css'
 
 const YearEnd = ({setYearEnd}) => {
 	
