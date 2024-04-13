@@ -10,6 +10,7 @@ import MovieDetail from './pages/MovieDetail/MovieDetail';
 import NotFound from './pages/NotFound/NotFound';
 import ReservePage from './pages/ReservePage/ReservePage';
 import ChoicePage from './pages/ChoicePage/ChoicePage';
+// import ChoicePage2 from './pages/ChoicePage/ChoicePage2';
 import MyPage from './pages/MyPage/MyPage';
 import TimePage from './pages/TimePage/TimePage';
 
