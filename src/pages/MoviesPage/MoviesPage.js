@@ -25,24 +25,27 @@ const MoviesPage = () => {
 
   const [yearStart, setYearStart] = useState(2001)
 	const [yearEnd, setYearEnd] = useState(2024)
-  const [scoreStart, setScoreStart] = useState(2001)
-	const [scoreEnd, setScoreEnd] = useState(2024)
+  const [scoreStart, setScoreStart] = useState(0)
+	const [scoreEnd, setScoreEnd] = useState(10)
 
 
   const {data, isLoading, isError, error} = useSearchMovies({keyword, page})
   console.log('searched data :', data)
+  console.log('yearStart :', yearStart)
+  console.log('yearEnd :', yearEnd)
 
   const handlePageClick=({selected})=>{
     setPage(selected +1)
   }
   function filterMovies(){
-		console.log('year Start: ', yearStart)
-		console.log('year End:', yearEnd)
+		console.log('year Start[필터]: ', yearStart)
+		console.log('year End[필터]:', yearEnd)
 		console.log('score Start: ', scoreStart)
 		console.log('score End:', scoreEnd)
 		const newList = movieList.filter(movie => {
 			const movieYear = new Date(movie.release_date).getFullYear();
-      const movieScore = movie.vote_average;
+      console.log('movieYear : ',movieYear)
+      const movieScore = parseInt(movie.vote_average);
 
 			return movieYear >=yearStart && movieYear<= yearEnd 
              && movieScore >=scoreStart && movieScore <= scoreEnd ;
@@ -59,7 +62,9 @@ const MoviesPage = () => {
   },[data])
 
    useEffect(()=>{
-		setMovies(filterMovies())
+    console.log('filterUseEffect 실행')
+    const newList = filterMovies()
+		setMovies(newList)
 	},[yearStart, yearEnd, scoreStart, scoreEnd])
 
 

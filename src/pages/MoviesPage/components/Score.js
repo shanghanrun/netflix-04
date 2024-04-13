@@ -54,7 +54,7 @@ function valueText(value) {
 }
 
 export default function ScoreSlider({setScoreStart, setScoreEnd}) {
-	const [value, setValue] = useState([3, 10]);
+	const [value, setValue] = useState([0, 10]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -68,7 +68,7 @@ export default function ScoreSlider({setScoreStart, setScoreEnd}) {
 		<Box sx={{ width: 300 }}>
 		<Slider
 			aria-label="Custom marks"
-			defaultValue={[3,10]}
+			defaultValue={[0,10]}
 			getAriaValueText={valueText}
 			step={1}
 			marks={marks}
