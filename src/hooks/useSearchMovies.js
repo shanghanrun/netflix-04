@@ -7,9 +7,9 @@ const fetchSearchMovies = ({ keyword, page }) => {
   } else if (keyword) {
     return api.get(`search/movie?query=${keyword}`);
   } else if (page) {
-    return api.get(`movie/popular?page=${page}`);
+    return api.get(`movie/upcoming?page=${page}`);
   } else {
-    return api.get('movie/popular');
+    return api.get('movie/upcoming');
   }
   
 };

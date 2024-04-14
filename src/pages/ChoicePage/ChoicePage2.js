@@ -75,6 +75,7 @@ function ChoicePage2() {
     const reserveButton = useRef(null);
     const cardIndex = useRef(-1);
     const [init, setInit] = useState(false);
+	const [init2, setInit2] =useState(false)
 	const initialAngle = useRef(0)
     const {setIndex, setTitle} = useMovieStore()
 	const navigate = useNavigate()
@@ -112,18 +113,21 @@ function ChoicePage2() {
             isFirstClick.current = false;
             cardIndex.current = index;
 		} else {
-			clickedCard.querySelector('img').classList.remove('isSecond');
+			setInit(!init)
 
-            if (reserveButton.current) {
-                reserveButton.current.remove();
-                reserveButton.current = null;
-            }
 
-            document.querySelectorAll('.card').forEach((card, i) => {
-                if (i !== index) {
-                    card.classList.remove('transparent');
-                }
-            });
+			// clickedCard.querySelector('img').classList.remove('isSecond');
+
+            // if (reserveButton.current) {
+            //     reserveButton.current.remove();
+            //     reserveButton.current = null;
+            // }
+
+            // document.querySelectorAll('.card').forEach((card, i) => {
+            //     if (i !== index) {
+            //         card.classList.remove('transparent');
+            //     }
+            // });
 			// 카드를 초기 위치로 되돌립니다.
 			// clickedCard.style.transition = 'transform 0.5s ease';
 			
@@ -158,6 +162,7 @@ function ChoicePage2() {
 	
 	useEffect(()=>{
 		console.log('재랜더링')
+		// setInit2(true)
 	},[init])
 
     return(
