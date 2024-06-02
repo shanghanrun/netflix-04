@@ -18,7 +18,7 @@ const MyPage = () => {
 		// const url = `https://hm-shopping-full3.netlify.app`;
 		const movie ={title:title, seat:seat, image:image}
 		const movieInfo = encodeURIComponent(JSON.stringify(movie));
-		const url =`https://hm-shopping-full3.netlify.app/move?info=${movieInfo}`
+		const url =`https://hm-shopping-full3.netlify.app/gotoshopping?info=${movieInfo}`
 		window.location.href = url;
 	}
 
