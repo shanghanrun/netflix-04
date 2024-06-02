@@ -26,11 +26,16 @@ const MyPage = () => {
 			<h1 style={{marginBottom:'20px'}}>MyPage</h1>
 			<h3 style={{fontWeight:'bold', marginBottom:'20px'}}>유저 : {user?.name}</h3>
 			<h3 style={{fontWeight:'bold', marginBottom:'20px'}}>이메일 : {user?.email}</h3>
-			<img src={image} width="400px" alt=''/>
-			<h3 style={{fontWeight:'bold', marginBottom:'20px'}}>제목 : {title}</h3>
-			<h3>예약 좌석</h3>
-			<div style={{borderBottom: '2px solid gray', width: '400px', marginBottom: '10px' }}></div>
-			<div>[ {seat?.join(', ')} ]</div>
+			<div style={{display:'flex', gap:'20px'}}>
+				<img src={image} width="400px" alt=''/>
+				<div>
+					<h3 style={{fontWeight:'bold', marginBottom:'20px'}}>제목 : {title}</h3>
+					<h3>예약 좌석</h3>
+					<div style={{borderBottom: '2px solid gray', width: '400px', marginBottom: '10px' }}></div>
+					<div>[ {seat?.join(', ')} ]</div>
+				</div>
+			</div>
+			
 			
 		</div>
 		<div style={{height:'20px'}}></div>
