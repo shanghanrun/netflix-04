@@ -21,7 +21,7 @@ const MyPage = () => {
 		const movieInfo = encodeURIComponent(JSON.stringify(movie));
 		// const url =`https://hm-shopping-full3.netlify.app/gotoshopping?info=${movieInfo}`
 		// const url =`${process.env.REACT_APP_PROXY}/gotoshopping?info=${movieInfo}`
-		const url =`${process.env.REACT_APP_PROXY}}/api/user`  // 확인용 주소 리디렉션 잘되나 확인
+		const url =`${process.env.REACT_APP_PROXY}/api/user`  // 확인용 주소 리디렉션 잘되나 확인
 		window.location.href = url;
 	}
 
