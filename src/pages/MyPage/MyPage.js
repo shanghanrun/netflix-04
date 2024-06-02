@@ -9,6 +9,7 @@ const MyPage = () => {
 	const title = JSON.parse(localStorage.getItem('title'));
 	const seat = JSON.parse(localStorage.getItem('seat'))
 	const user = JSON.parse(localStorage.getItem('user'))
+	console.log('user : ', user)
  
 
   return (
