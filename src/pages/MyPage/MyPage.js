@@ -10,6 +10,7 @@ const MyPage = () => {
 //   const {title, seatList} = useMovieStore()
 	const title = JSON.parse(localStorage.getItem('title'));
 	const seat = JSON.parse(localStorage.getItem('seat'))
+	const image = localStorage.getItem('image')
 
 	console.log('user : ', user)
  
@@ -25,6 +26,7 @@ const MyPage = () => {
 			<h1 style={{marginBottom:'20px'}}>MyPage</h1>
 			<h3 style={{fontWeight:'bold', marginBottom:'20px'}}>유저 : {user?.name}</h3>
 			<h3 style={{fontWeight:'bold', marginBottom:'20px'}}>이메일 : {user?.email}</h3>
+			<img src={image} width="400px" alt=''/>
 			<h3 style={{fontWeight:'bold', marginBottom:'20px'}}>제목 : {title}</h3>
 			<h3>예약 좌석</h3>
 			<div style={{borderBottom: '2px solid gray', width: '400px', marginBottom: '10px' }}></div>

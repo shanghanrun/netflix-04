@@ -68,7 +68,7 @@ function ChoicePage() {
     const reserveButton = useRef(null);
     const cardIndex = useRef(-1);
     const [init, setInit] = useState(false);
-    const {setIndex, setTitle} = useMovieStore()
+    const {setIndex, setTitle, setImage} = useMovieStore()
 
 	const navigate = useNavigate()
 
@@ -210,11 +210,13 @@ function ChoicePage() {
     const handleReserveClick = () => {
         const index = cardIndex.current;
         const title = titles[index];
+        const image = images[index];
         console.log('좌석예약 버튼 클릭');
         console.log('index :', index)
         console.log('title :',title)
         setIndex(index)
         setTitle(title)
+        setImage(image)
         navigate('/reserve');
     };
 
