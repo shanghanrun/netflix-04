@@ -24,7 +24,7 @@ const MyPage = () => {
 
   return (
 	<div>
-		<div className="mypage-body" style={{ height:"98vh"}}>
+		<div className="mypage-body" style={{}}>
 			<h1 style={{marginBottom:'20px'}}>MyPage</h1>
 			<h3 style={{fontWeight:'bold', marginBottom:'20px'}}>유저 : {user?.name}</h3>
 			<h3 style={{fontWeight:'bold', marginBottom:'20px'}}>이메일 : {user?.email}</h3>
