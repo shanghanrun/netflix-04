@@ -217,6 +217,7 @@ function ChoicePage() {
         setIndex(index)
         setTitle(title)
         setImage(image)
+        localStorage.setItem('image', image)
         navigate('/reserve');
     };
 

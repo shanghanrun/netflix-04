@@ -15,7 +15,6 @@ export const useMovieStore = create((set)=>({
 	setTitle:(val) =>set((state)=>({title: val})),
 	setImage:(val) =>{
 		set((state)=>({image: val}))
-		localStorage.setItem('image', val)
 	},
 	setSeatList:(val)=>set((state)=>({seatList: val}))
 }))
