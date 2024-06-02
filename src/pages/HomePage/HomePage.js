@@ -27,6 +27,7 @@ const HomePage = () => {
       axios.get(`/api/user/verify-token?token=${token}`)
         .then(response => {
           const { id, name, email } = response.data;
+          console.log('영화페이지 받은 유저 name:', name)
           // 사용자 정보를 로컬 스토리지에 저장
           localStorage.setItem('user', JSON.stringify({ id, name, email }));
           //혹은 userStore를 만들어서 관리
