@@ -1,7 +1,4 @@
-[[redirects]]
-  from = "/old-page.html"
-  to = "/new-page.html"
-  status = 301
+
 
 [[redirects]]
   from = "/api/*"
