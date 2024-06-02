@@ -16,7 +16,7 @@ const MyPage = () => {
  
 	function moveToHM(){
 		// const url = `https://hm-shopping-full3.netlify.app`;
-		// REACT_APP_PROXY=https://eloquent-pastelito-120fb6.netlify.app
+		// REACT_APP_PROXY=hhttps://gleeful-halva-28c7ac.netlify.app
 		const movie ={title:title, seat:seat, image:image}
 		const movieInfo = encodeURIComponent(JSON.stringify(movie));
 		// const url =`https://hm-shopping-full3.netlify.app/gotoshopping?info=${movieInfo}`
