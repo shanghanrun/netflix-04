@@ -11,6 +11,10 @@ const MyPage = () => {
 	const user = JSON.parse(localStorage.getItem('user'))
 	console.log('user : ', user)
  
+	function moveToHM(){
+		const url = `https://hm-shopping-full3.netlify.app`;
+		window.location.href = url;
+	}
 
   return (
 	<div>
@@ -25,6 +29,7 @@ const MyPage = () => {
 			
 		</div>
 		<div style={{height:'20px'}}></div>
+		<Button onClick={moveToHM}>hm-shopping으로 이동</Button>
 	</div>
   )
 }
