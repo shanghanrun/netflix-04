@@ -57,7 +57,7 @@ const AppLayout = () => {
 						<Nav.Link as={NavLink} className="choice" to="/choice">Choice</Nav.Link>
 						<Nav.Link as={NavLink} className="reserve" to="/reserve">Reserve</Nav.Link>
 						<Nav.Link as={NavLink} className="mypage" to='/mypage'>MyPage</Nav.Link>
-						<Nav.Link className="hm-shoopping" href='https://hm-shopping-full3.netlify.app'>HM-Shopping</Nav.Link>
+						<Nav.Link className="hm-shopping" href='https://hm-shopping-full3.netlify.app'>HM-Shopping</Nav.Link>
 						{/* <MyNavLink to="/mypage" state={{ title, seatList }}>MyPage</MyNavLink> */}
 					</Nav>
 					<Form ref={formRef} className="d-flex" 
