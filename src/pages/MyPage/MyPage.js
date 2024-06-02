@@ -20,7 +20,7 @@ const MyPage = () => {
 			<h3 style={{fontWeight:'bold', marginBottom:'20px'}}>제목 : {title}</h3>
 			<h3>예약 좌석</h3>
 			<div style={{borderBottom: '2px solid gray', width: '400px', marginBottom: '10px' }}></div>
-			<div>[ {seat.join(', ')} ]</div>
+			<div>[ {seat?.join(', ')} ]</div>
 			
 		</div>
 		<div style={{height:'20px'}}></div>
