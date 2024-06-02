@@ -10,7 +10,7 @@ const MyPage = () => {
 //   const {title, seatList} = useMovieStore()
 	const title = JSON.parse(localStorage.getItem('title'));
 	const seat = JSON.parse(localStorage.getItem('seat'))
-	
+
 	console.log('user : ', user)
  
 	function moveToHM(){
@@ -31,7 +31,7 @@ const MyPage = () => {
 			
 		</div>
 		<div style={{height:'20px'}}></div>
-		<Button onClick={moveToHM}>hm-shopping으로 이동</Button>
+		<Button style={{marginLeft:'20px'}} onClick={moveToHM}>hm-shopping으로 이동</Button>
 	</div>
   )
 }
