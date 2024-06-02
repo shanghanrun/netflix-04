@@ -33,13 +33,14 @@ const MyPage = () => {
 					<h3>예약 좌석</h3>
 					<div style={{borderBottom: '2px solid gray', width: '400px', marginBottom: '10px' }}></div>
 					<div>[ {seat?.join(', ')} ]</div>
+					<Button style={{margin:'20px'}} onClick={moveToHM}>hm-shopping으로 이동</Button>
 				</div>
 			</div>
 			
 			
 		</div>
 		<div style={{height:'20px'}}></div>
-		<Button style={{margin:'20px'}} onClick={moveToHM}>hm-shopping으로 이동</Button>
+		
 	</div>
   )
 }
