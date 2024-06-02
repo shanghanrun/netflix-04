@@ -12,6 +12,8 @@ import axios from 'axios'
 const HomePage = () => {
 
   useEffect(()=>{
+    //백앤드 url
+    const SELF_HTTPS = 'https://eloquent-pastelito-120fb6.netlify.app';
     // URL에서 토큰을 추출하는 함수
     function getTokenFromUrl() {
       const params = new URLSearchParams(window.location.search);
@@ -25,7 +27,7 @@ const HomePage = () => {
       localStorage.setItem('token', token);
       // token에서 유저 id, name, email얻기
       // 백엔드에 토큰 검증 요청 보내기
-      axios.get(`/api/user/verify-token?token=${token}`)
+      axios.get(`${SELF_HTTPS}/api/user/verify-token?token=${token}`)
         .then(response => {
           const { id, name, email } = response.data;
           console.log('영화페이지 받은 유저 name:', name)
