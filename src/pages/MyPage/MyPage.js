@@ -8,8 +8,8 @@ import { useMovieStore } from '../../store/movieStore';
 const MyPage = () => {
 	const {user} = useMovieStore()
 //   const {title, seatList} = useMovieStore()
-	const title = JSON.parse(localStorage.getItem('title'));
-	const seat = JSON.parse(localStorage.getItem('seat'))
+	const title = localStorage.getItem('title')
+	const seat = localStorage.getItem('seat')
 	const image = localStorage.getItem('image')
 
 	console.log('user : ', user)
