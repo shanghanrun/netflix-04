@@ -14,7 +14,8 @@ const MyPage = () => {
 	console.log('user : ', user)
  
 	function moveToHM(){
-		const url = `https://hm-shopping-full3.netlify.app`;
+		// const url = `https://hm-shopping-full3.netlify.app`;
+		const url ='http://localhost:3000'
 		window.location.href = url;
 	}
 
@@ -31,7 +32,7 @@ const MyPage = () => {
 			
 		</div>
 		<div style={{height:'20px'}}></div>
-		<Button style={{marginLeft:'20px'}} onClick={moveToHM}>hm-shopping으로 이동</Button>
+		<Button style={{margin:'20px'}} onClick={moveToHM}>hm-shopping으로 이동</Button>
 	</div>
   )
 }
