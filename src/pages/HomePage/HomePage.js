@@ -19,6 +19,7 @@ const HomePage = () => {
     }
 
     const token = getTokenFromUrl();
+    console.log('영화페이지 받은 토큰:', token)
     if (token) {
       // 로컬 스토리지 또는 세션 스토리지에 토큰을 저장
       localStorage.setItem('token', token);
