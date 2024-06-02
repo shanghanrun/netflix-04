@@ -16,9 +16,9 @@ const MyPage = () => {
  
 	function moveToHM(){
 		// const url = `https://hm-shopping-full3.netlify.app`;
-		const info ={title:title, seat:seat, image:image}
-		const infoString = JSON.stringify(info)
-		const url =`http://localhost:3000?info=${infoString}`
+		const movie ={title:title, seat:seat, image:image}
+		const movieInfo = JSON.stringify(movie)
+		const url =`http://localhost:3000?info=${movieInfo}`
 		window.location.href = url;
 	}
 
