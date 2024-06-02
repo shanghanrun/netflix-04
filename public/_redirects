@@ -1,5 +1,5 @@
 /old-page.html /new-page.html 301
 
 /api/* http://localhost:5001/api/:splat 200
-
+/move/* http://localhost:3000/:splat 200
 /* /index.html 200
