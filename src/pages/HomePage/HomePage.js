@@ -25,13 +25,14 @@ const HomePage = () => {
       const params = new URLSearchParams(window.location.search)
       return params.get('user')
     }
-    let user = getUserInfo();
-    if(user){ // user가 null일 경우도 있다.
-    // user가 null 이면 user.JSON.parse에러 난다.
-      user = user.JSON.parse(user)
+    const userInfo = getUserInfo();
+    let userObj;
+    if(userInfo){ // userInfo가 null일 경우도 있다.
+    // userInfo가 null 이면 JSON.parse(userInfo)에서 에러 난다.
+      userObj = JSON.parse(userInfo)
     }
     
-    setUser(user)
+    setUser(userObj)
 
 
     // const token = getTokenFromUrl();
