@@ -39,7 +39,7 @@
 
 
 .mypage {
-  color: aquamarine
+  color: aquamarine !important
 }
 .hm-shopping{
   color: rgb(246, 163, 218) !important
