@@ -3,12 +3,14 @@ import './MyPage.style.css'; // CSS 파일을 가져옵니다.
 // import { useMovieStore } from '../../store/movieStore';
 import {Modal, Button} from 'react-bootstrap'
 import {useNavigate} from 'react-router-dom'
+import { useMovieStore } from '../../store/movieStore';
 
 const MyPage = () => {
+	const {user} = useMovieStore()
 //   const {title, seatList} = useMovieStore()
 	const title = JSON.parse(localStorage.getItem('title'));
 	const seat = JSON.parse(localStorage.getItem('seat'))
-	const user = JSON.parse(localStorage.getItem('user'))
+	
 	console.log('user : ', user)
  
 	function moveToHM(){

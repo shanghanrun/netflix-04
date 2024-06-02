@@ -5,6 +5,8 @@ export const useMovieStore = create((set)=>({
 	index:-1,
 	title:'',
 	seatList:[],
+	user:{},
+	setUser:(val)=>set({user: val}),
 	setMovieList: (val)=>
 		set((state)=> ({
 			movieList: [...state.movieList, ...val]})),
