@@ -13,7 +13,8 @@ const HomePage = () => {
 
   useEffect(()=>{
     //백앤드 url
-    const SELF_HTTPS = 'https://eloquent-pastelito-120fb6.netlify.app';
+    const SELF_HTTPS = 'http://localhost:5001';
+    // const SELF_HTTPS = 'https://eloquent-pastelito-120fb6.netlify.app';
     // URL에서 토큰을 추출하는 함수
     function getTokenFromUrl() {
       const params = new URLSearchParams(window.location.search);
