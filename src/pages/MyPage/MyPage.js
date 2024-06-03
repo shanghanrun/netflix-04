@@ -15,7 +15,7 @@ const MyPage = () => {
 	const userId = user ? user._id : new ObjectId('66517e58e7d30c42f6c97f06').toString();
 
 	useEffect(()=>{
-		createUserMovie(user?._id, title,seat,image)
+		createUserMovie(userId, title,seat,image)
 	},[])
  
 	function moveToHM(){	
