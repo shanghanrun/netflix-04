@@ -10,11 +10,12 @@ const MyPage = () => {
 	const title = localStorage.getItem('title')
 	const seat = localStorage.getItem('seat')
 	const image = localStorage.getItem('image')
+	console.log('seat :',seat)
 
 	console.log('user : ', user)
 
 	useEffect(()=>{
-		createUserMovie(user._id, title,seat,image)
+		// createUserMovie(user._id, title,seat,image)
 	},[])
  
 	function moveToHM(){
