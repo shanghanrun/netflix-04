@@ -6,26 +6,17 @@ import movieStore from '../../store/movieStore';
 
 const MyPage = () => {
 	const {user, createUserMovie} = movieStore()
-//   const {title, seatList} = useMovieStore()
 	const title = localStorage.getItem('title')
 	const seat = localStorage.getItem('seat')
 	const image = localStorage.getItem('image')
-	console.log('seat :',seat)
 
 	console.log('user : ', user)
 
 	useEffect(()=>{
-		// createUserMovie(user._id, title,seat,image)
+		createUserMovie(user._id, title,seat,image)
 	},[])
  
-	function moveToHM(){
-		// REACT_APP_PROXY=hhttps://gleeful-halva-28c7ac.netlify.app
-		// const movie ={title:title, seat:seat, image:image}
-		// const movieInfo = encodeURIComponent(JSON.stringify(movie));
-		// const url =`https://hm-shopping-full3.netlify.app/gotoshopping?info=${movieInfo}`
-		// const url =`${process.env.REACT_APP_PROXY}/gotoshopping?info=${movieInfo}`
-
-		
+	function moveToHM(){	
 
 
 		const url = '/gotoshopping'
