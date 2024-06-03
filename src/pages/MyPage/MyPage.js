@@ -13,12 +13,10 @@ const MyPage = () => {
 	console.log('user : ', user)
 
 	useEffect(()=>{
-		createUserMovie(user._id, title,seat,image)
+		createUserMovie(user?._id, title,seat,image)
 	},[])
  
 	function moveToHM(){	
-
-
 		const url = '/gotoshopping'
 
 		// const url =process.env.REACT_APP_FRONT}  // netlify로 서비스중인 hm-shopping3full은 https라서 리다이렉트도 필요없다. 바로 이곳으로 가면 된다. 
