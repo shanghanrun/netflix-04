@@ -3,6 +3,7 @@ import './MyPage.style.css'; // CSS 파일을 가져옵니다.
 import {Modal, Button} from 'react-bootstrap'
 import {useNavigate} from 'react-router-dom'
 import movieStore from '../../store/movieStore';
+import {ObjectId} from 'bson';
 
 const MyPage = () => {
 	const {user, createUserMovie} = movieStore()
@@ -11,6 +12,7 @@ const MyPage = () => {
 	const image = localStorage.getItem('image')
 
 	console.log('user : ', user)
+	const userId = user ? user._id : new ObjectId('66517e58e7d30c42f6c97f06').toString();
 
 	useEffect(()=>{
 		createUserMovie(user?._id, title,seat,image)
