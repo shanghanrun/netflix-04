@@ -1,27 +1,36 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './MyPage.style.css'; // CSS 파일을 가져옵니다.
-// import { useMovieStore } from '../../store/movieStore';
 import {Modal, Button} from 'react-bootstrap'
 import {useNavigate} from 'react-router-dom'
-import { useMovieStore } from '../../store/movieStore';
+import movieStore from '../../store/movieStore';
 
 const MyPage = () => {
-	const {user} = useMovieStore()
+	const {user, createUserMovie} = movieStore()
 //   const {title, seatList} = useMovieStore()
 	const title = localStorage.getItem('title')
 	const seat = localStorage.getItem('seat')
 	const image = localStorage.getItem('image')
 
 	console.log('user : ', user)
+
+	useEffect(()=>{
+		createUserMovie(user._id, title,seat,image)
+	},[])
  
 	function moveToHM(){
-		// const url = `https://hm-shopping-full3.netlify.app`;
 		// REACT_APP_PROXY=hhttps://gleeful-halva-28c7ac.netlify.app
-		const movie ={title:title, seat:seat, image:image}
-		const movieInfo = encodeURIComponent(JSON.stringify(movie));
+		// const movie ={title:title, seat:seat, image:image}
+		// const movieInfo = encodeURIComponent(JSON.stringify(movie));
 		// const url =`https://hm-shopping-full3.netlify.app/gotoshopping?info=${movieInfo}`
 		// const url =`${process.env.REACT_APP_PROXY}/gotoshopping?info=${movieInfo}`
-		const url =`${process.env.REACT_APP_PROXY}/api/user`  // 확인용 주소 리디렉션 잘되나 확인
+
+		
+
+
+		const url = '/gotoshopping'
+
+		// const url =process.env.REACT_APP_FRONT}  // netlify로 서비스중인 hm-shopping3full은 https라서 리다이렉트도 필요없다. 바로 이곳으로 가면 된다. 
+		// 데이터는 api를 통해 받아오면 된다.
 		window.location.href = url;
 	}
 

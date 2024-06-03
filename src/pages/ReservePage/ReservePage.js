@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './ReservePage.style.css'; // CSS 파일을 가져옵니다.
-import { useMovieStore } from '../../store/movieStore';
+import movieStore from '../../store/movieStore';
 import {Modal, Button} from 'react-bootstrap'
 import {useNavigate} from 'react-router-dom'
 
 const Reserve = () => {
   const [list, setList] = useState([]);
-  const {title, setTitle, setSeatList} = useMovieStore()
+  const {title, setTitle, setSeatList} = movieStore()
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate()
   

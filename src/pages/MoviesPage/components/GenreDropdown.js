@@ -1,11 +1,11 @@
 import Dropdown from 'react-bootstrap/Dropdown';
 import Button from 'react-bootstrap/Button';
-import { useMovieStore } from './../../../store/movieStore';
+import movieStore from './../../../store/movieStore';
 import { genres } from './../../../common/constants/genres';
 
 
 function GenreDropdown({setMovies }) {
-  const {movieList} = useMovieStore() 
+  const {movieList} = movieStore() 
 
   function filterByGenre(id){
     console.log('genre id: ', id)

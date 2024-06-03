@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import { useSearchParams} from 'react-router-dom'
-import { useMovieStore } from '../../store/movieStore'
+import movieStore from '../../store/movieStore'
 import { useSearchMovies } from '../../hooks/useSearchMovies'
 import { Alert } from 'react-bootstrap';
 import {Container, Row, Col, Spinner} from 'react-bootstrap';
@@ -21,7 +21,7 @@ const MoviesPage = () => {
   console.log('keyword :', keyword)
   const [page, setPage] = useState(1);
   const [movies, setMovies] = useState([])
-  const {movieList, setMovieList} = useMovieStore();
+  const {movieList, setMovieList} = movieStore();
 
   const [yearStart, setYearStart] = useState(2001)
 	const [yearEnd, setYearEnd] = useState(2024)

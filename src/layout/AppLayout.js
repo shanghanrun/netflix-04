@@ -4,7 +4,7 @@ import {Button, Container, Form, Nav, Navbar} from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import {Outlet} from 'react-router-dom'
 import './AppLayout.style.css'
-import { useMovieStore } from '../store/movieStore';
+import movieStore from '../store/movieStore';
 
 const MyNavLink = ({ to, state, children }) => {
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ const MyNavLink = ({ to, state, children }) => {
 };
 
 const AppLayout = () => {
-	const {title, seatList} = useMovieStore()
+	const {title, seat} = movieStore()
 	const formRef = useRef()
 	const navigate = useNavigate()
 	const searchByKeyword=(e)=>{
@@ -62,7 +62,7 @@ const AppLayout = () => {
 						<Nav.Link as={NavLink} className="choice" to="/choice">Choice</Nav.Link>
 						<Nav.Link as={NavLink} className="reserve" to="/reserve">Reserve</Nav.Link>
 						<Nav.Link as={NavLink} className="mypage" to='/mypage'>MyPage</Nav.Link>
-						<Nav.Link className="hm-shopping" href='http://localhost:3000'>HM-Shopping</Nav.Link>
+						<Nav.Link className="hm-shopping" href='/gotoshopping'>HM-Shopping</Nav.Link>
 						{/* <MyNavLink to="/mypage" state={{ title, seatList }}>MyPage</MyNavLink> */}
 					</Nav>
 					<Form ref={formRef} className="d-flex" 

@@ -1,7 +1,7 @@
 import  { useState, useEffect, useRef } from 'react';
 import {useNavigate} from 'react-router-dom'
 import './ChoicePage.style.css'; // 스타일 파일을 가져옵니다.
-import { useMovieStore } from '../../store/movieStore';
+import movieStore from '../../store/movieStore';
 
 const images = [
 	'https://search3.kakaocdn.net/argon/656x0_80_wr/Fdw60fejriu',
@@ -77,7 +77,7 @@ function ChoicePage2() {
     const [init, setInit] = useState(false);
 	const [init2, setInit2] =useState(false)
 	const initialAngle = useRef(0)
-    const {setIndex, setTitle} = useMovieStore()
+    const {setIndex, setTitle} = movieStore()
 	const navigate = useNavigate()
 
     const handleCardClick = (index) => {

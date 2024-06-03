@@ -1,10 +1,10 @@
 
 import Dropdown from 'react-bootstrap/Dropdown';
 import './SortDropdown.style.css'
-import { useMovieStore } from './../../../store/movieStore';
+import movieStore from './../../../store/movieStore';
 
 function SortDropdown({setMovies }) {
-  const {movieList} = useMovieStore()
+  const {movieList} = movieStore()
   const handleSort = (sortBy) => {
     let sortedMovies = [...movieList];
 

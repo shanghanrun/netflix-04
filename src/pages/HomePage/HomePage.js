@@ -4,14 +4,14 @@ import PopularMoviesSlider from './components/PopularMoviesSlider/PopularMoviesS
 import TopRatedMoviesSlider from './components/TopRatedMoviesSlider/TopRatedMoviesSlider'
 import UpcomingMoviesSlider from './components/UpcomingMoviesSlider/UpcomingMoviesSlider'
 // import axios from 'axios'
-import { useMovieStore } from './../../store/movieStore';
+import movieStore from './../../store/movieStore';
 
 //1.배너 => popular movie를 들고와서 첫번째 아이템을 보여주자.
 //2. popular movie
 //3. top rated movie
 //4. upcoming movie
 const HomePage = () => {
-  const {setUser} = useMovieStore()
+  const {setUser} = movieStore()
 
   useEffect(()=>{
     //리디렉션 url
@@ -31,7 +31,7 @@ const HomePage = () => {
     // userInfo가 null 이면 JSON.parse(userInfo)에서 에러 난다.
       userObj = JSON.parse(userInfo)
     }
-    
+    console.log('영화로 넘어온 유저정보:', userObj)
     setUser(userObj)
 
 

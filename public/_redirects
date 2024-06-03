@@ -1,5 +1,5 @@
 /api/* http://localhost:5001/api/:splat 200
 
-/gotoshopping* http://localhost:3000/:splat 200
+/gotoshopping* http://localhost:3000
 
 /* /index.html 200
