@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom'
 
 const Reserve = () => {
   const [list, setList] = useState([]);
-  const {title, setTitle, setSeatList} = movieStore()
+  const {title, setTitle, setSeat} = movieStore()
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate()
   
@@ -69,7 +69,7 @@ const Reserve = () => {
     //모달창 보이게 하기
     setShowModal(true)
     setTitle(title)
-    setSeatList(list)
+    setSeat(list)
     // 화면의 링크를 통해 이동하면, store의 state값이 초기세팅되는 문제가 발생한다.
     // 그래서 state값을 보존하기 위해 localStorage에 보관한다.
     // 그러고서 화면에서 MyPage 링크로 들어가면 이것을 받아온다.
@@ -79,7 +79,7 @@ const Reserve = () => {
     localStorage.setItem('seat', seat)
     
     console.log('title :',title)
-    console.log('seatList : ', list)
+    console.log('seat : ', list)
     setTimeout(() => {
       navigate('/mypage')
     }, 3000);
