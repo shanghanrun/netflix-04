@@ -1,7 +1,4 @@
-# /api/* http://localhost:5001/api/:splat 200
 /api/* mongodb+srv://idim7:bzeEcNaou6xGibHd@cluster0.dwajw45.mongodb.net/hm-shopping3/api/:splat 200
-
-# /gotoshopping* http://localhost:3000
 
 /gotoshopping* https://teal-kleicha-2ddcc1.netlify.app
 
