@@ -1,5 +1,7 @@
 /api/* http://localhost:5001/api/:splat 200
 
-/gotoshopping* http://localhost:3000 200
+# /gotoshopping* http://localhost:3000
+
+/gotoshopping* https://d3dlvbxpgesgac.cloudfront.net
 
 /* /index.html 200
