@@ -10,7 +10,7 @@ const api2 = axios.create({
   // baseURL: LOCAL_BACKEND,
   baseURL: PROXY,
   headers: {
-    authorization: `Bearer ${sessionStorage.getItem("token")}`,
+    // authorization: `Bearer ${sessionStorage.getItem("token")}`,
   },
 });
 /**
