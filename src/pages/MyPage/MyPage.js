@@ -13,6 +13,7 @@ const MyPage = () => {
 
 	console.log('user : ', user)
 	const userId = user ? user._id : new ObjectId('66517e58e7d30c42f6c97f06').toString();
+	console.log('userId :', userId)
 
 	useEffect(()=>{
 		createUserMovie(userId, title,seat,image)
